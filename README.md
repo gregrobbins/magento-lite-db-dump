@@ -12,11 +12,11 @@ The result is a more lightweight file to download, and does not contain
 potentially sensitive customer data.
 
 Called from the command line, it has the following options:
--h help
--d database
--u username
--p password
--g flag to gzip the resulting file.
+*   -h help
+*   -d database
+*   -u username
+*   -p password
+*   -g flag to gzip the resulting file.
 
 The script produces a filename called $dbname.dump.sql(.gz)
 
