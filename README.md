@@ -11,7 +11,19 @@ etc.
 The result is a more lightweight file to download, and does not contain
 potentially sensitive customer data.
 
-Called from the command line, it has the following options:
+This would ideally be imported into the local database environment. I always
+follow this with a second script that updates the development environment. The
+most basic version of this would look something like this:
+
+    UPDATE core_config_data SET value = 'http://magento.dev/' WHERE path = 'web/unsecure/baseurl';
+    UPDATE core_config_data SET value = 'http://magento.dev/' WHERE path = 'web/secure/baseurl';
+
+Probably you would have other configurations you should change too.
+
+Usage
+=====
+
+Called from the command line, dumper.sh has the following options:
 *   -h help
 *   -d database
 *   -u username
