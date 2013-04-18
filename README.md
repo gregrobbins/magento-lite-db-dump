@@ -21,7 +21,7 @@ most basic version of this would look something like this:
 Probably you would have other configurations you should change too.
 
 Usage
-=====
+-----
 
 Called from the command line, dumper.sh has the following options:
 *   -h help
@@ -123,3 +123,10 @@ The following tables are left empty:
 *   wishlist
 *   wishlist_item
 *   wishlist_item_option
+
+Collaboration
+-------------
+
+Your suggestions and pull requests are welcome!
+
+I am pretty new to shell scripting, and there may be other tables in Magento that would be good candidates for skipping.
