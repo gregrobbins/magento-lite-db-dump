@@ -118,6 +118,15 @@ mysqldump -u$USERNAME -p$PASSWORD $DBNAME -t  \
     --ignore_table $DBNAME.wishlist \
     --ignore_table $DBNAME.wishlist_item \
     --ignore_table $DBNAME.wishlist_item_option \
+    --ignore_table $DBNAME.catalog_product_index_price_cl \
+    --ignore_table $DBNAME.cataloginventory_stock_status_cl \
+    --ignore_table $DBNAME.catalogsearch_fulltext_cl \
+    --ignore_table $DBNAME.catalog_product_flat_cl \
+    --ignore_table $DBNAME.enterprise_logging_event \
+    --ignore_table $DBNAME.enterprise_logging_event_changes \
+    --ignore_table $DBNAME.catalog_category_product_cat_tmp \
+    --ignore_table $DBNAME.catalog_product_flat_* \
+    --ignore_table $DBNAME.catalog_category_flat_* \
     >> $DBNAME.dump.sql
 if [ "$GZIPFLAG" == 1 ]; then
     gzip $DBNAME.dump.sql
