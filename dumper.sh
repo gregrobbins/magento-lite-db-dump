@@ -40,6 +40,7 @@ fi
 
 mysqldump -u$USERNAME -p$PASSWORD $DBNAME --no-data > $DBNAME.dump.sql
 mysqldump -u$USERNAME -p$PASSWORD $DBNAME -t  \
+    --ignore-table $DBNAME.admin_user \
     --ignore-table $DBNAME.log_customer \
     --ignore-table $DBNAME.log_quote \
     --ignore-table $DBNAME.log_summary \
@@ -119,6 +120,13 @@ mysqldump -u$USERNAME -p$PASSWORD $DBNAME -t  \
     --ignore_table $DBNAME.wishlist_item \
     --ignore_table $DBNAME.wishlist_item_option \
     >> $DBNAME.dump.sql
+
+    echo "LOCK TABLES admin_user WRITE;" >> $DBNAME.dump.sql
+    echo "/*!40000 ALTER TABLE admin_user DISABLE KEYS */;" >> $DBNAME.dump.sql
+    echo "INSERT INTO admin_user VALUES (47,'Ad','Min','admin@docusign.com','admin','69c3f890217c41943cdd4ca73d99fec97a9350407106c571a0eb8b94a0e07e2d:D1','2015-03-30 18:57:04','2015-03-31 01:56:52','2015-03-31 01:57:04',1,0,1,'N;',NULL,NULL,0,NULL,NULL);" >> $DBNAME.dump.sql
+    echo "/*!40000 ALTER TABLE admin_user ENABLE KEYS */;" >> $DBNAME.dump.sql
+    echo "UNLOCK TABLES;" >> $DBNAME.dump.sql
+
 if [ "$GZIPFLAG" == 1 ]; then
     gzip $DBNAME.dump.sql
 fi
